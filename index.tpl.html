@@ -63,16 +63,18 @@ section{position:relative}
 /* ---------- nav ---------- */
 header{position:fixed;top:0;left:0;right:0;z-index:80;transition:.6s cubic-bezier(.2,.7,.3,1)}
 header .bar{display:flex;align-items:center;justify-content:space-between;gap:24px;
-  padding:22px var(--pad);border-bottom:1px solid transparent;transition:.6s}
-header.solid .bar{background:rgba(11,10,8,.72);backdrop-filter:blur(22px) saturate(140%);
-  -webkit-backdrop-filter:blur(22px);border-bottom-color:var(--hair);padding-top:14px;padding-bottom:14px}
+  padding:22px var(--pad);border-bottom:1px solid rgba(201,162,39,.16);transition:.5s cubic-bezier(.2,.7,.3,1);
+  background:linear-gradient(180deg,rgba(11,10,8,.88),rgba(11,10,8,.42) 72%,rgba(11,10,8,0));}
+header.solid .bar{background:rgba(11,10,8,.90);backdrop-filter:blur(22px) saturate(140%);
+  -webkit-backdrop-filter:blur(22px);border-bottom-color:var(--hair);padding-top:13px;padding-bottom:13px;
+  box-shadow:0 18px 40px -28px rgba(0,0,0,.95)}
 .brand{display:flex;align-items:center;gap:13px}
 .mono-mark{width:34px;height:34px;border:1px solid var(--hair);display:grid;place-items:center;
   font-family:var(--serif);font-size:17px;color:var(--gold-lt);letter-spacing:0}
 .brand b{font-family:var(--serif);font-weight:400;font-size:19px;letter-spacing:.17em;text-transform:uppercase}
 .brand small{display:block;font-size:8.5px;letter-spacing:.34em;color:var(--muted);margin-top:2px}
 nav.links{display:flex;gap:36px}
-nav.links a{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:rgba(245,240,230,.82);position:relative;padding:4px 0}
+nav.links a{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:rgba(245,240,230,.90);position:relative;padding:4px 0}
 nav.links a::after{content:'';position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--gold);transition:width .45s}
 nav.links a:hover{color:var(--bone)} nav.links a:hover::after{width:100%}
 .burger{display:none;background:none;border:1px solid var(--hair);width:44px;height:44px;color:var(--gold-lt);cursor:pointer}
@@ -82,7 +84,8 @@ nav.links a:hover{color:var(--bone)} nav.links a:hover::after{width:100%}
 .sheet a{font-family:var(--serif);font-size:30px;letter-spacing:.05em}
 
 /* ---------- hero ---------- */
-.hero{height:100svh;min-height:560px;display:grid;place-items:center;overflow:clip;isolation:isolate}
+.hero{height:100svh;min-height:560px;display:grid;place-items:center;overflow:clip;isolation:isolate;
+  padding-top:96px}
 .bgs{position:absolute;inset:-7%;z-index:-2}
 .bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;
   transition:opacity 1.9s ease;filter:blur(10px) saturate(118%) brightness(.55);transform:scale(1.07)}
@@ -91,7 +94,8 @@ nav.links a:hover{color:var(--bone)} nav.links a:hover::after{width:100%}
 .veil{position:absolute;inset:0;z-index:-1;background:
   radial-gradient(56% 52% at 50% 42%,rgba(201,162,39,.20),transparent 72%),
   linear-gradient(180deg,rgba(11,10,8,.80),rgba(11,10,8,.42) 38%,rgba(11,10,8,.95))}
-.hero-card{padding:clamp(32px,4.6vw,54px) clamp(22px,5vw,62px);text-align:center;max-width:820px;margin:0 var(--pad)}
+.hero-card{padding:clamp(32px,4.6vw,54px) clamp(22px,5vw,62px);text-align:center;max-width:820px;
+  margin:0 var(--pad);scroll-margin-top:110px}
 .hero-card h1{font-size:clamp(42px,9vw,108px);letter-spacing:.02em;margin:14px 0 0}
 .hero-card p{color:rgba(245,240,230,.80);font-size:clamp(14px,1.5vw,16.5px);max-width:48ch;margin:16px auto 0}
 .dots{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);display:flex;gap:11px;z-index:3}
@@ -216,7 +220,9 @@ footer{border-top:1px solid var(--hair);padding:44px 0 34px;background:#070604}
   nav.links{display:none}
   .burger{display:block}
   header .bar>.btn.solid{display:none}
-  header .bar{gap:14px}
+  header .bar{gap:14px;padding:13px var(--pad)}
+  header.solid .bar{padding-top:10px;padding-bottom:10px}
+  .hero{padding-top:82px}
   .brand b{font-size:16px;letter-spacing:.13em}
   .mono-mark{width:30px;height:30px;font-size:15px}
   .two,.res,.field{grid-template-columns:1fr}
@@ -568,7 +574,7 @@ let ticking = false;
 const docTop = el => el.getBoundingClientRect().top + window.scrollY;
 function onScroll(){
   const y = window.scrollY || 0, vh = innerHeight;
-  hd.classList.toggle('solid', y > 40);
+  hd.classList.toggle('solid', y > 12);
   const foot = docTop(document.querySelector('footer'));
   mbar.classList.toggle('up', y > vh*0.9 && y < foot - vh*0.85);
   document.querySelectorAll('.frame img[data-par]').forEach(im=>{

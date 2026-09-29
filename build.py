@@ -16,11 +16,11 @@ def U(i):
     return u
 
 PICK = {
-    'hero':      [23, 38, 13, 2, 0],
+    'hero':      [21, 29, 19, 2, 13],
     'band':      [51, 46, 63],
     'villa':     11,
-    'suites':   [16, 1, 30],
-    'gallery':  [7, 9, 12, 21, 124, 133],
+    'suites':   [16, 1, 0],
+    'gallery':  [7, 9, 12, 22, 124, 35],
 }
 
 SUITES = [
@@ -39,9 +39,9 @@ GALLERY = [
     (0, 'Pavilion pool, mid-morning'),
     (1, 'Rock pool &amp; water garden'),
     (2, 'The upper pool, treeline'),
-    (3, 'Infinity edge at dusk'),
+    (3, 'The main pool, afternoon'),
     (4, 'The beach, ten minutes down'),
-    (5, 'Lights on the water, night'),
+    (5, 'Last light over the palms'),
 ]
 
 TICKER = ['Infinity pool', '24 h butler', 'Spa &amp; hammam', 'Private chef',

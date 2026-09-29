@@ -63,16 +63,18 @@ section{position:relative}
 /* ---------- nav ---------- */
 header{position:fixed;top:0;left:0;right:0;z-index:80;transition:.6s cubic-bezier(.2,.7,.3,1)}
 header .bar{display:flex;align-items:center;justify-content:space-between;gap:24px;
-  padding:22px var(--pad);border-bottom:1px solid transparent;transition:.6s}
-header.solid .bar{background:rgba(11,10,8,.72);backdrop-filter:blur(22px) saturate(140%);
-  -webkit-backdrop-filter:blur(22px);border-bottom-color:var(--hair);padding-top:14px;padding-bottom:14px}
+  padding:22px var(--pad);border-bottom:1px solid rgba(201,162,39,.16);transition:.5s cubic-bezier(.2,.7,.3,1);
+  background:linear-gradient(180deg,rgba(11,10,8,.88),rgba(11,10,8,.42) 72%,rgba(11,10,8,0));}
+header.solid .bar{background:rgba(11,10,8,.90);backdrop-filter:blur(22px) saturate(140%);
+  -webkit-backdrop-filter:blur(22px);border-bottom-color:var(--hair);padding-top:13px;padding-bottom:13px;
+  box-shadow:0 18px 40px -28px rgba(0,0,0,.95)}
 .brand{display:flex;align-items:center;gap:13px}
 .mono-mark{width:34px;height:34px;border:1px solid var(--hair);display:grid;place-items:center;
   font-family:var(--serif);font-size:17px;color:var(--gold-lt);letter-spacing:0}
 .brand b{font-family:var(--serif);font-weight:400;font-size:19px;letter-spacing:.17em;text-transform:uppercase}
 .brand small{display:block;font-size:8.5px;letter-spacing:.34em;color:var(--muted);margin-top:2px}
 nav.links{display:flex;gap:36px}
-nav.links a{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:rgba(245,240,230,.82);position:relative;padding:4px 0}
+nav.links a{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:rgba(245,240,230,.90);position:relative;padding:4px 0}
 nav.links a::after{content:'';position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--gold);transition:width .45s}
 nav.links a:hover{color:var(--bone)} nav.links a:hover::after{width:100%}
 .burger{display:none;background:none;border:1px solid var(--hair);width:44px;height:44px;color:var(--gold-lt);cursor:pointer}
@@ -82,7 +84,8 @@ nav.links a:hover{color:var(--bone)} nav.links a:hover::after{width:100%}
 .sheet a{font-family:var(--serif);font-size:30px;letter-spacing:.05em}
 
 /* ---------- hero ---------- */
-.hero{height:100svh;min-height:560px;display:grid;place-items:center;overflow:clip;isolation:isolate}
+.hero{height:100svh;min-height:560px;display:grid;place-items:center;overflow:clip;isolation:isolate;
+  padding-top:96px}
 .bgs{position:absolute;inset:-7%;z-index:-2}
 .bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;
   transition:opacity 1.9s ease;filter:blur(10px) saturate(118%) brightness(.55);transform:scale(1.07)}
@@ -91,7 +94,8 @@ nav.links a:hover{color:var(--bone)} nav.links a:hover::after{width:100%}
 .veil{position:absolute;inset:0;z-index:-1;background:
   radial-gradient(56% 52% at 50% 42%,rgba(201,162,39,.20),transparent 72%),
   linear-gradient(180deg,rgba(11,10,8,.80),rgba(11,10,8,.42) 38%,rgba(11,10,8,.95))}
-.hero-card{padding:clamp(32px,4.6vw,54px) clamp(22px,5vw,62px);text-align:center;max-width:820px;margin:0 var(--pad)}
+.hero-card{padding:clamp(32px,4.6vw,54px) clamp(22px,5vw,62px);text-align:center;max-width:820px;
+  margin:0 var(--pad);scroll-margin-top:110px}
 .hero-card h1{font-size:clamp(42px,9vw,108px);letter-spacing:.02em;margin:14px 0 0}
 .hero-card p{color:rgba(245,240,230,.80);font-size:clamp(14px,1.5vw,16.5px);max-width:48ch;margin:16px auto 0}
 .dots{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);display:flex;gap:11px;z-index:3}
@@ -216,7 +220,9 @@ footer{border-top:1px solid var(--hair);padding:44px 0 34px;background:#070604}
   nav.links{display:none}
   .burger{display:block}
   header .bar>.btn.solid{display:none}
-  header .bar{gap:14px}
+  header .bar{gap:14px;padding:13px var(--pad)}
+  header.solid .bar{padding-top:10px;padding-bottom:10px}
+  .hero{padding-top:82px}
   .brand b{font-size:16px;letter-spacing:.13em}
   .mono-mark{width:30px;height:30px;font-size:15px}
   .two,.res,.field{grid-template-columns:1fr}
@@ -482,7 +488,7 @@ footer{border-top:1px solid var(--hair);padding:44px 0 34px;background:#070604}
 
 <script src="assets/lenis.min.js"></script>
 <script>
-const DATA = {"hero": ["https://live.staticflickr.com/8537/27989422714_c414784e8b_b.jpg", "https://live.staticflickr.com/8646/28500500152_e5dd811f0c_b.jpg", "https://live.staticflickr.com/4452/37019026664_56b86a44d7_b.jpg", "https://live.staticflickr.com/4838/45679323142_9931072216_b.jpg", "https://live.staticflickr.com/2810/34184526761_d30699f238_b.jpg"], "band": ["https://live.staticflickr.com/4276/34699123132_fb34830d28_b.jpg", "https://live.staticflickr.com/4186/33656085223_8b258c8de1_b.jpg", "https://live.staticflickr.com/8530/8493824450_144a166383_b.jpg"], "slots": {"villa": "https://live.staticflickr.com/2943/15216069128_59d2db1006_b.jpg"}, "suites": [{"img": "https://live.staticflickr.com/4480/23875579288_558ef1644a_b.jpg", "alt": "Garden Suite", "name": "Garden Suite", "meta": "64 m² · Private plunge pool · Valley side", "txt": "A single pavilion set into the terraces, with an outdoor bath and a daybed built for two.", "price": "$320"}, {"img": "https://live.staticflickr.com/6071/6025114019_6b540671f4_b.jpg", "alt": "Pool Pavilion", "name": "Pool Pavilion", "meta": "96 m² · 12 m infinity edge · Rice-terrace view", "txt": "The largest of the pavilions, open on three sides, with a pool that runs to the edge of the valley.", "price": "$560"}, {"img": "https://live.staticflickr.com/2444/3652362426_4b578b1197_b.jpg", "alt": "Valley Residence", "name": "Valley Residence", "meta": "180 m² · Two bedrooms · Butler &amp; car", "txt": "Two bedrooms, a private dining pavilion and a car with driver for the length of your stay.", "price": "$840"}], "gallery": [{"img": "https://live.staticflickr.com/3902/15402659895_80a266245e_b.jpg", "cap": "Pavilion pool, mid-morning"}, {"img": "https://live.staticflickr.com/3905/15216066018_49bba9137d_b.jpg", "cap": "Rock pool &amp; water garden"}, {"img": "https://live.staticflickr.com/3893/15402658745_fb7457534f_b.jpg", "cap": "The upper pool, treeline"}, {"img": "https://live.staticflickr.com/50/142791822_ac27de3e77_b.jpg", "cap": "Infinity edge at dusk"}, {"img": "https://live.staticflickr.com/3238/3148032199_6bbee89a7f_b.jpg", "cap": "The beach, ten minutes down"}, {"img": "https://live.staticflickr.com/5504/11002627523_6b43e89bf8_b.jpg", "cap": "Lights on the water, night"}], "ticker": ["Infinity pool", "24 h butler", "Spa &amp; hammam", "Private chef", "Rice-terrace walks", "Airport transfer", "Nine pavilions", "Ayung valley"]};
+const DATA = {"hero": ["https://live.staticflickr.com/50/142791822_ac27de3e77_b.jpg", "https://live.staticflickr.com/3157/3015048891_66a27bfb8d_b.jpg", "https://live.staticflickr.com/2103/2495600194_34dfcabdee_b.jpg", "https://live.staticflickr.com/4838/45679323142_9931072216_b.jpg", "https://live.staticflickr.com/4452/37019026664_56b86a44d7_b.jpg"], "band": ["https://live.staticflickr.com/4276/34699123132_fb34830d28_b.jpg", "https://live.staticflickr.com/4186/33656085223_8b258c8de1_b.jpg", "https://live.staticflickr.com/8530/8493824450_144a166383_b.jpg"], "slots": {"villa": "https://live.staticflickr.com/2943/15216069128_59d2db1006_b.jpg"}, "suites": [{"img": "https://live.staticflickr.com/4480/23875579288_558ef1644a_b.jpg", "alt": "Garden Suite", "name": "Garden Suite", "meta": "64 m² · Private plunge pool · Valley side", "txt": "A single pavilion set into the terraces, with an outdoor bath and a daybed built for two.", "price": "$320"}, {"img": "https://live.staticflickr.com/6071/6025114019_6b540671f4_b.jpg", "alt": "Pool Pavilion", "name": "Pool Pavilion", "meta": "96 m² · 12 m infinity edge · Rice-terrace view", "txt": "The largest of the pavilions, open on three sides, with a pool that runs to the edge of the valley.", "price": "$560"}, {"img": "https://live.staticflickr.com/2810/34184526761_d30699f238_b.jpg", "alt": "Valley Residence", "name": "Valley Residence", "meta": "180 m² · Two bedrooms · Butler &amp; car", "txt": "Two bedrooms, a private dining pavilion and a car with driver for the length of your stay.", "price": "$840"}], "gallery": [{"img": "https://live.staticflickr.com/3902/15402659895_80a266245e_b.jpg", "cap": "Pavilion pool, mid-morning"}, {"img": "https://live.staticflickr.com/3905/15216066018_49bba9137d_b.jpg", "cap": "Rock pool &amp; water garden"}, {"img": "https://live.staticflickr.com/3893/15402658745_fb7457534f_b.jpg", "cap": "The upper pool, treeline"}, {"img": "https://live.staticflickr.com/7896/46379606564_180a868754_b.jpg", "cap": "The main pool, afternoon"}, {"img": "https://live.staticflickr.com/3238/3148032199_6bbee89a7f_b.jpg", "cap": "The beach, ten minutes down"}, {"img": "https://live.staticflickr.com/2110/2280596546_7e6498f54a_b.jpg", "cap": "Last light over the palms"}], "ticker": ["Infinity pool", "24 h butler", "Spa &amp; hammam", "Private chef", "Rice-terrace walks", "Airport transfer", "Nine pavilions", "Ayung valley"]};
 
 /* ---------- image slots ---------- */
 document.querySelectorAll('[data-slot]').forEach(el=>{ if(DATA.slots[el.dataset.slot]) el.src = DATA.slots[el.dataset.slot]; });
@@ -568,7 +574,7 @@ let ticking = false;
 const docTop = el => el.getBoundingClientRect().top + window.scrollY;
 function onScroll(){
   const y = window.scrollY || 0, vh = innerHeight;
-  hd.classList.toggle('solid', y > 40);
+  hd.classList.toggle('solid', y > 12);
   const foot = docTop(document.querySelector('footer'));
   mbar.classList.toggle('up', y > vh*0.9 && y < foot - vh*0.85);
   document.querySelectorAll('.frame img[data-par]').forEach(im=>{
