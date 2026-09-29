@@ -20,7 +20,7 @@ PICK = {
     'band':      [51, 46, 63],
     'villa':     11,
     'suites':   [16, 1, 30],
-    'gallery':  [7, 9, 12, 21, 124, 133, 151, 181],
+    'gallery':  [7, 9, 12, 21, 124, 133],
 }
 
 SUITES = [
@@ -42,8 +42,6 @@ GALLERY = [
     (3, 'Infinity edge at dusk'),
     (4, 'The beach, ten minutes down'),
     (5, 'Lights on the water, night'),
-    (6, 'The house, evening'),
-    (7, 'Stone bath, marble house'),
 ]
 
 TICKER = ['Infinity pool', '24 h butler', 'Spa &amp; hammam', 'Private chef',
